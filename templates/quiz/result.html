@@ -1,0 +1,20 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div class="card card-custom mx-auto" style="max-width: 500px;">
+    <h2 class="text-center mb-4"><i class="bi bi-clipboard-check"></i> Результат</h2>
+
+    <p><strong>Ваш ответ:</strong> {{ user_answer }}</p>
+    <p><strong>Правильный ответ:</strong> {{ right_answer }}</p>
+
+    {% if correct %}
+        <div class="alert alert-success rounded-3"><i class="bi bi-check-circle-fill"></i> Верно!</div>
+    {% else %}
+        <div class="alert alert-danger rounded-3"><i class="bi bi-x-circle-fill"></i> Неверно!</div>
+    {% endif %}
+
+    <div class="text-center">
+        <a class="btn btn-secondary btn-custom" href="/">Попробовать ещё</a>
+    </div>
+</div>
+{% endblock %}

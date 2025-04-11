@@ -1,0 +1,24 @@
+{% extends 'quiz/base.html' %}
+{% load form_tags %}
+
+{% block content %}
+<div class="card card-custom mx-auto" style="max-width: 600px;">
+    <h2 class="text-center mb-4"><i class="bi bi-plus-circle"></i> Добавить страну и столицу</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.country.label_tag }}
+            {{ form.country|add_class:"form-control" }}
+        </div>
+        <div class="mb-3">
+            {{ form.capital.label_tag }}
+            {{ form.capital|add_class:"form-control" }}
+        </div>
+        <div class="text-center">
+            <button class="btn btn-success btn-custom" type="submit">
+                <i class="bi bi-check2-square"></i> Добавить
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

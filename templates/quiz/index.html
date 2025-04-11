@@ -1,0 +1,21 @@
+{% extends 'quiz/base.html' %}
+
+{% load form_tags %} 
+
+{% block content %}
+<div class="card card-custom mx-auto" style="max-width: 500px;">
+    <h2 class="text-center mb-4"><i class="bi bi-question-circle"></i> Викторина</h2>
+    <p class="text-center">Какая столица у страны: <strong>{{ country }}</strong>?</p>
+    <form method="post" action="{% url 'check_answer' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.answer.label_tag }}
+            {{ form.answer|add_class:"form-control" }}
+        </div>
+        <input type="hidden" name="country" value="{{ country }}">
+        <div class="text-center">
+            <button class="btn btn-primary btn-custom" type="submit">Ответить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

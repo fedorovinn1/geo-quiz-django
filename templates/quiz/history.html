@@ -1,0 +1,38 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div class="card card-custom">
+    <h2 class="text-center mb-4"><i class="bi bi-clock-history"></i> История ответов</h2>
+    {% if history %}
+    <table class="table table-bordered text-center">
+        <thead class="table-light">
+            <tr>
+                <th>Страна</th>
+                <th>Ваш ответ</th>
+                <th>Результат</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in history %}
+            <tr>
+                <td>{{ entry.country }}</td>
+                <td>{{ entry.user_answer }}</td>
+                <td>
+                    {% if entry.correct %}
+                        <span class="text-success"><i class="bi bi-check-circle-fill"></i></span>
+                    {% else %}
+                        <span class="text-danger"><i class="bi bi-x-circle-fill"></i></span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="text-center text-muted">История пока пуста.</p>
+    {% endif %}
+    <div class="text-center">
+        <a class="btn btn-primary btn-custom" href="{% url 'reset_history' %}">Сбросить историю</a>
+    </div>
+</div>
+{% endblock %}
