@@ -1,0 +1,12 @@
+[
+  {
+    "country": "США",
+    "user_answer": "вашингтон",
+    "correct": true
+  },
+  {
+    "country": "Нидерланды",
+    "user_answer": "бонн",
+    "correct": false
+  }
+]
